@@ -1,0 +1,28 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: no
+  pre_tasks:
+    - name: Check for Python
+      raw: test -e /usr/bin/python3
+      changed_when: false
+      failed_when: false
+      register: check_python
+
+    - name: Install Python
+      raw: apt -y update && apt install -y python3-minimal python3-apt
+      when: check_python.rc != 0
+
+    - name: Gathering facts
+      setup:
+
+    - name: Update apt for docker role
+      apt:
+        cache_valid_time: 3600
+
+  tasks:
+    - name: 'Include ansible-role-ros-master'
+      include_role:
+        name: 'ansible-role-ros-master'
+      vars:
+        ros_ip: 127.0.0.1

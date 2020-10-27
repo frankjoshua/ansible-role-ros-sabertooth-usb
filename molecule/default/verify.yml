@@ -1,0 +1,27 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+
+  vars:
+    container_name: 'ros_master'
+
+  tasks:
+    - name: Wait for container to start
+      wait_for:
+        timeout: 45
+
+    - name: Get infos on container
+      docker_container_info:
+        name: '{{ container_name }}'
+      register: result
+
+    - name: Does container exist?
+      assert:
+        that: result.exists
+
+    - name: Check if container is healthy
+      assert:
+        that: "'{{ result.container['State']['Health']['Status'] }}' == 'healthy'"
+      when: result.exists

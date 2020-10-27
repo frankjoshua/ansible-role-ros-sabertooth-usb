@@ -1,0 +1,31 @@
+---
+dependency:
+  name: galaxy
+  role-file: requirements.yml
+  requirements-file: requirements.yml
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+platforms:
+  - name: instance
+    image: ubuntu:${MOLECULE_DISTRO:-16.04}
+    command: ${MOLECULE_DOCKER_COMMAND:-"sleep infinity"}
+    # privileged is not supported in arm64 on Travis CI
+    # privileged: true
+    pre_build_image: true
+    capabilities:
+      - SYS_ADMIN
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /var/lib/docker
+      # This is a work around for Travis CI arm64 privileged issue :(
+      - /var/run/docker.sock:/var/run/docker.sock
+provisioner:
+  name: ansible
+  # Turn on Diff for extra debugging
+  options:
+    D: True
+verifier:
+  name: ansible
