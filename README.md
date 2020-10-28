@@ -1,4 +1,4 @@
-# Sabertooth 2x32 usb motor driver [![Build Status](https://travis-ci.org/frankjoshua/ansible-role-ros-master.svg?branch=master)](https://travis-ci.org/frankjoshua/ansible-role-ros-master)<br>
+# Sabertooth 2x32 usb motor driver [![Build Status](https://travis-ci.org/frankjoshua/ansible-role-ros-sabertooth-usb.svg?branch=master)](https://travis-ci.org/frankjoshua/ansible-role-ros-sabertooth-usb)<br>
 
 Deploys Docker container with Sabertooth 2x32 usb motor driver
 

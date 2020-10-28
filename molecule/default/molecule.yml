@@ -10,7 +10,7 @@ lint: |
   yamllint .
 platforms:
   - name: instance
-    image: ubuntu:${MOLECULE_DISTRO:-16.04}
+    image: ubuntu:${MOLECULE_DISTRO:-18.04}
     command: ${MOLECULE_DOCKER_COMMAND:-"sleep infinity"}
     # privileged is not supported in arm64 on Travis CI
     # privileged: true
