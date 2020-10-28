@@ -27,5 +27,8 @@ provisioner:
   # Turn on Diff for extra debugging
   options:
     D: True
+  env:
+    DOCKER_NAME: ros_sabertooth_usb
+    ROLE_NAME: ansible-role-ros-sabertooth-usb
 verifier:
   name: ansible

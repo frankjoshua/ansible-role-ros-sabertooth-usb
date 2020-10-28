@@ -1,0 +1,3 @@
+---
+- src: https://github.com/frankjoshua/ansible-role-ros-master
+  name: ansible-role-ros-master

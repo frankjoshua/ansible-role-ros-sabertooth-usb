@@ -1,6 +1,6 @@
 galaxy_info:
   author: Joshua Frank
-  description: Installs ROS master using Docker
+  description: Installs ROS Sabertooth 2x32 motor driver using Docker
   license: Apache-2.0
   min_ansible_version: 2.9
   galaxy_tags: []
@@ -8,4 +8,5 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - all
-dependencies: []
+dependencies:
+  - { role: 'ansible-role-ros-master' }
