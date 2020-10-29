@@ -6,6 +6,7 @@
     network_mode: 'host'
     restart_policy: 'unless-stopped'
     pull: '{{ pull_image }}'
+    devices: '{{ usb_port }}:/dev/ttyACM0'
     env:
       ROS_MASTER_URI: '{{ ros_master_uri }}'
       ROS_IP: '{{ ros_ip }}'
