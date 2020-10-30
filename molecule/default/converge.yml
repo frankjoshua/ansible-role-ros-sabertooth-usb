@@ -19,6 +19,8 @@
   vars:
     role_name: "{{ lookup('env', 'ROLE_NAME') }}"
     ros_ip: 127.0.0.1
+    mock_serial: true
+    usb_port: '/dev/null'
 
   tasks:
     - name: 'Include {{ role_name }}'

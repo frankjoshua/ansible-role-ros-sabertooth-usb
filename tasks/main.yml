@@ -10,4 +10,6 @@
     env:
       ROS_MASTER_URI: '{{ ros_master_uri }}'
       ROS_IP: '{{ ros_ip }}'
-  register: container_status
+      ROS_TOPIC: '{{ ros_motor_topic }}'
+      ROS_NODE: '{{ ros_node }}'
+      MOCK_SERIAL: '"{{ mock_serial }}"'

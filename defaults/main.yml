@@ -5,3 +5,6 @@ docker_name: 'ros_sabertooth_usb'
 pull_image: false
 docker_image: 'frankjoshua/ros-sabertooth-usb:latest'
 usb_port: '/dev/ttyACM0'
+ros_motor_topic: 'cmd_vel'
+ros_node: 'sabertooth_motor'
+mock_serial: false
